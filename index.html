@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Account</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Style for the dropdown */
+        select {
+            background-color: white;
+            color: black;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #000;
+            margin-bottom: 15px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        /* Style for the options */
+        option {
+            background-color: white;
+            color: black;
+        }
+
+        /* To style the form and container */
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: #000;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #fff;
+            color: #000;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+    <script>
+        // This script dynamically generates the list of years for the Date of Birth select field
+        window.onload = function () {
+            var yearSelect = document.getElementById("dob");
+            var currentYear = new Date().getFullYear();
+            for (var year = currentYear; year >= 1900; year--) {
+                var option = document.createElement("option");
+                option.value = year;
+                option.text = year;
+                yearSelect.appendChild(option);
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Create new Account</h1>
+        <p>Already Registered? <a href="#">Log in here.</a></p>
+        <form action="#">
+            <label for="name">NAME</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">EMAIL</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">PASSWORD</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="dob">DATE OF BIRTH</label>
+            <select id="dob" name="dob" required>
+                <option value="" disabled selected>Select</option>
+                <!-- The years will be dynamically added here by JavaScript -->
+            </select>
+
+            <button type="submit">Sign up</button>
+        </form>
+    </div>
+</body>
+</html>
